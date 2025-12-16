@@ -8,6 +8,7 @@
 // @icon         https://cdn.creazilla.com/cliparts/3171394/gear-clipart-lg.png
 
 // @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/utils.js
+// @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/phrasePipeline.js?v=1
 // @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/collectData.js
 // @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/buttons/buttons.js
 
