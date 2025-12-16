@@ -1,17 +1,17 @@
 // ==UserScript==
 // @name         Mega AI Phrase
 // @namespace    http://tampermonkey.net/
-// @version      1.0.1
-// @description  MAIPH v.1.0.1
+// @version      1.0.2
+// @description  MAIPH v.1.0.2
 // @author       DAKO23
 // @match        https://megasys.megaparts.bg/megasys/product*
 // @icon         https://cdn.creazilla.com/cliparts/3171394/gear-clipart-lg.png
 
-// @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/utils.js?v=1
-// @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/phrasePipeline.js?v=1
-// @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/collectData.js?v=1
-// @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/editAutoFill.js?v=1
-// @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/buttons/buttons.js?v=1
+// @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/utils.js?v=2
+// @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/phrasePipeline.js?v=2
+// @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/collectData.js?v=2
+// @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/editAutoFill.js?v=2
+// @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/buttons/buttons.js?v=2
 
 // @resource     CUSTOMCSS https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/buttons/styles.css
 
