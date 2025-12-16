@@ -15,5 +15,5 @@ window.fetchPhrases = async function (items) {
     if (!res.ok) throw new Error('Backend error ' + res.status);
 
     const data = await res.json();
-    return data.prices;
+    return data;
 };
