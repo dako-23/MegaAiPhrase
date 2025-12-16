@@ -1,65 +1,88 @@
-;(function () {
-  'use strict';
+; (function () {
+    'use strict';
 
-  if (!location.href.includes('/megasys/product/editMegapartsAdmin/')) return;
+    if (!location.href.includes('/megasys/product/editMegapartsAdmin/')) return;
 
-  function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+    function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
-  function getIdFromUrl() {
-    const m = location.pathname.match(/editMegapartsAdmin\/(\d+)/);
-    return m ? m[1] : null;
-  }
-
-  function setNativeValue(el, value) {
-    el.focus();
-    el.value = value;
-    el.dispatchEvent(new Event('input', { bubbles: true }));
-    el.dispatchEvent(new Event('change', { bubbles: true }));
-    el.blur();
-  }
-
-  function findPhraseInput() {
-    return document.querySelector('#name');
-  }
-
-  async function run() {
-    const urlId = getIdFromUrl();
-    if (!urlId) return;
-
-    const current = GM_getValue('MP_CURRENT', null);
-    if (!current?.jobId) return;
-
-    // безопасност: да не попълваме грешен таб
-    if (String(current.id) !== String(urlId)) {
-      console.log('[MP] Not my job. urlId=', urlId, 'current.id=', current.id);
-      return;
+    function getIdFromUrl() {
+        const m = location.pathname.match(/editMegapartsAdmin\/(\d+)/);
+        return m ? m[1] : null;
     }
 
-    await sleep(2000);
-
-    // чакаме input да се появи
-    for (let i = 0; i < 30; i++) {
-      const input = findPhraseInput();
-      if (input) {
-        setNativeValue(input, current.phrase);
-        console.log('[MP] Filled:', current.id, current.phrase);
-
-        // ако искаш auto-save: тук натискаш бутона Save (трябва selector)
-        // document.querySelector('button[type="submit"]')?.click();
-
-        // ACK към list tab-а
-        GM_setValue('MP_ACK', { jobId: current.jobId, index: current.index, id: current.id, ok: true });
-
-        await sleep(300);
-        // window.close();
-        return;
-      }
-      await sleep(250);
+    function findPhraseInput() {
+        return document.querySelector('#name');
     }
 
-    // ако не намерим input, пак ACK, но ok:false
-    GM_setValue('MP_ACK', { jobId: current.jobId, index: current.index, id: current.id, ok: false, reason: 'input_not_found' });
-  }
+    async function fillAndSelectWithEnter(input, phrase) {
+        input.focus();
 
-  run();
+        input.value = phrase;
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        input.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
+
+        await sleep(700);
+
+        input.dispatchEvent(new KeyboardEvent('keydown', {
+            key: 'ArrowDown',
+            code: 'ArrowDown',
+            keyCode: 40,
+            which: 40,
+            bubbles: true
+        }));
+
+        await sleep(50);
+
+        input.dispatchEvent(new KeyboardEvent('keydown', {
+            key: 'Enter',
+            code: 'Enter',
+            keyCode: 13,
+            which: 13,
+            bubbles: true
+        }));
+
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+        input.blur();
+    }
+
+    async function run() {
+        const urlId = getIdFromUrl();
+        if (!urlId) return;
+
+        const current = GM_getValue('MP_CURRENT', null);
+        if (!current?.jobId) return;
+
+        // безопасност: да не попълваме грешен таб
+        if (String(current.id) !== String(urlId)) {
+            console.log('[MP] Not my job. urlId=', urlId, 'current.id=', current.id);
+            return;
+        }
+
+        await sleep(2000);
+
+        // чакаме input да се появи
+        for (let i = 0; i < 30; i++) {
+            const input = findPhraseInput();
+            if (input) {
+                await fillAndSelectWithEnter(input, current.phrase);
+                console.log('[MP] Filled:', current.id, current.phrase);
+
+                // ако искаш auto-save: тук натискаш бутона Save (трябва selector)
+                // document.querySelector('button[type="submit"]')?.click();
+
+                // ACK към list tab-а
+                GM_setValue('MP_ACK', { jobId: current.jobId, index: current.index, id: current.id, ok: true });
+
+                await sleep(300);
+                // window.close();
+                return;
+            }
+            await sleep(250);
+        }
+
+        // ако не намерим input, пак ACK, но ok:false
+        GM_setValue('MP_ACK', { jobId: current.jobId, index: current.index, id: current.id, ok: false, reason: 'input_not_found' });
+    }
+
+    run();
 })();
