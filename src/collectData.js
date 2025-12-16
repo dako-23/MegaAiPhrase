@@ -45,8 +45,10 @@ window.collectAndSendToBackend = async function () {
 
   try {
     const result = await fetchPhrases(items)
+    
+    console.log(result);
 
-    await runPhrasePipeline(phrases);
+    await runPhrasePipeline(result);
   }
   catch (err) {
     console.log(err);
