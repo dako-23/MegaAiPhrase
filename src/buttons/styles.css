@@ -1,0 +1,35 @@
+#mp-generate-prices,
+#mp-confirm-prices {
+    position: fixed;
+    bottom: 20px;
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    z-index: 99999;
+    color: #fff;
+    box-shadow: 0 2px 7px rgba(0,0,0,0.25);
+}
+
+#mp-generate-prices { right: 10px;  background: #007bff; }
+#mp-confirm-prices { right: 190px; background: #28a745; }
+
+#mp-generate-prices:not(.disabled):not(.loading):hover { background: #0069d9; }
+#mp-confirm-prices:not(.disabled):not(.loading):hover  { background: #218838; }
+
+#mp-generate-prices.loading {
+    background: #555 !important;
+    cursor: wait !important;
+    color: #eee !important;
+}
+
+.disabled,
+#mp-generate-prices:disabled,
+#mp-confirm-prices:disabled {
+    opacity: 0.8 !important;
+    cursor: not-allowed !important;
+    -webkit-appearance: none;
+    appearance: none;
+}
