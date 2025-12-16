@@ -7,12 +7,11 @@
 // @match        https://megasys.megaparts.bg/megasys/product*
 // @icon         https://cdn.creazilla.com/cliparts/3171394/gear-clipart-lg.png
 
-// @require      https://raw.githubusercontent.com/dako-23/MegaAiPrice/main/src/utils.js
-// @require      https://raw.githubusercontent.com/dako-23/MegaAiPrice/main/src/fillPrices.js
-// @require      https://raw.githubusercontent.com/dako-23/MegaAiPrice/main/src/confirmPrices.js
-// @require      https://raw.githubusercontent.com/dako-23/MegaAiPrice/main/src/buttons/buttons.js
+// @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/utils.js
+// @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/collectData.js
+// @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/buttons/buttons.js
 
-// @resource     CUSTOMCSS https://raw.githubusercontent.com/dako-23/MegaAiPrice/main/src/buttons/styles.css
+// @resource     CUSTOMCSS https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/buttons/styles.css
 
 // @grant        GM_addStyle
 // @grant        GM_getResourceText
