@@ -5,6 +5,10 @@ window.MP = {
     API_URL: 'https://server-tgjz.onrender.com/phrases/megaparts-phrases'
 };
 
+window.sleep = function (ms) {
+  return new Promise(r => setTimeout(r, ms));
+};
+
 window.fetchPhrases = async function (items) {
     const res = await fetch(MP.API_URL, {
         method: 'POST',
