@@ -21,7 +21,7 @@
         input.dispatchEvent(new Event('input', { bubbles: true }));
         input.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
 
-        await sleep(700);
+        await sleep(2000);
 
         input.dispatchEvent(new KeyboardEvent('keydown', {
             key: 'ArrowDown',
@@ -31,7 +31,7 @@
             bubbles: true
         }));
 
-        await sleep(50);
+        await sleep(2000);
 
         input.dispatchEvent(new KeyboardEvent('keydown', {
             key: 'Enter',
@@ -73,11 +73,11 @@
                 // ACK към list tab-а
                 GM_setValue('MP_ACK', { jobId: current.jobId, index: current.index, id: current.id, ok: true });
 
-                await sleep(300);
+                await sleep(2000);
                 // window.close();
                 return;
             }
-            await sleep(250);
+            await sleep(2000);
         }
 
         // ако не намерим input, пак ACK, но ok:false
