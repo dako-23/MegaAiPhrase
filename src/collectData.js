@@ -5,7 +5,7 @@ function imageUrlParser(src) {
 
   let url = 'https://megasys.megaparts.bg' + normalized;
 
-  url = url.replace('/images/400x265/', '/images/originals/');
+  // url = url.replace('/images/400x265/', '/images/originals/');
 
   return url;
 }
@@ -45,7 +45,7 @@ window.collectAndSendToBackend = async function () {
 
   try {
     const result = await fetchPhrases(items)
-    
+
     console.log(result);
 
     await runPhrasePipeline(result);
