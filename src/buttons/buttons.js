@@ -12,7 +12,7 @@ window.initButtons = function () {
     // conf.disabled = true;
     // conf.classList.add("disabled");
 
-    document.body.appendChild(gen);
+    document.body.appendChild(genPhrases);
     // document.body.appendChild(conf);
 
     MP.btnGenerate = genPhrases;
