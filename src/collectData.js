@@ -5,7 +5,7 @@ function imageUrlParser(src) {
 
   let url = 'https://megasys.megaparts.bg' + normalized;
 
-  // url = url.replace('/images/400x265/', '/images/originals/');
+  url = url.replace('/images/400x265/', '/images/originals/');
 
   return url;
 }
