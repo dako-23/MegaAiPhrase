@@ -10,7 +10,7 @@
 // @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/utils.js
 // @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/phrasePipeline.js?v=1
 // @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/collectData.js
-// @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/editAutoFill.js
+// @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/editAutoFill.js?v=1
 // @require      https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/buttons/buttons.js
 
 // @resource     CUSTOMCSS https://raw.githubusercontent.com/dako-23/MegaAiPhrase/main/src/buttons/styles.css
